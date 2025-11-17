@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="home-banner">
+    <div class="banner-content">
+        <h1>Welcome to your Banking Partner</h1>
+        <p>Manage your finances with ease and security</p>
+        {% if 'user_id' not in session %}
+            <div class="auth-buttons">
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+        {% endif %}
+    </div>
+</section>
+
+<section class="quick-reference">
+    <h2>Quick Reference</h2>
+    <div class="reference-grid">
+        <div class="reference-card">
+            <div class="reference-icon">
+                <i class="fas fa-university"></i>
+            </div>
+            <h3>Account Types</h3>
+            <ul>
+                <li><strong>Savings Account:</strong> Earn interest on your deposits</li>
+                <li><strong>Current Account:</strong> For everyday banking needs</li>
+            </ul>
+            <a href="#" class="link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="reference-card">
+            <div class="reference-icon">
+                <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h3>Loans</h3>
+            <ul>
+                <li><strong>Interest Rate:</strong> 10% per annum</li>
+                <li><strong>Maximum Amount:</strong> $1,000,000</li>
+                <li><strong>Minimum Amount:</strong> $1,000</li>
+            </ul>
+            <a href="#" class="link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="reference-card">
+            <div class="reference-icon">
+                <i class="fas fa-money-check-alt"></i>
+            </div>
+            <h3>Minimum Balance</h3>
+            <ul>
+                <li><strong>Savings Account:</strong> $500</li>
+                <li><strong>Current Account:</strong> $1,000</li>
+            </ul>
+            <a href="#" class="link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="reference-card">
+            <div class="reference-icon">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h3>Transaction Fees</h3>
+            <ul>
+                <li><strong>Savings Account:</strong>
+                    <ul>
+                        <li>Withdrawal: No fee</li>
+                        <li>Deposit: No fee</li>
+                    </ul>
+                </li>
+                <li><strong>Current Account:</strong>
+                    <ul>
+                        <li>Withdrawal: $5</li>
+                        <li>Deposit: No fee</li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#" class="link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="banking-services">
+    <h2>Our Banking Services</h2>
+    <div class="services-container">
+        <div class="service">
+            <div class="service-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="service-content">
+                <h3>Account Creation</h3>
+                <p>Open a new savings or current account in minutes with minimal documentation.</p>
+            </div>
+        </div>
+        <div class="service">
+            <div class="service-icon">
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="service-content">
+                <h3>Deposits & Withdrawals</h3>
+                <p>Easy deposit and withdrawal options with instant updates to your account balance.</p>
+            </div>
+        </div>
+        <div class="service">
+            <div class="service-icon">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <div class="service-content">
+                <h3>Digital Wallet</h3>
+                <p>Store your withdrawn money in a digital wallet for quick access and transactions.</p>
+            </div>
+        </div>
+        <div class="service">
+            <div class="service-icon">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="service-content">
+                <h3>Loan Services</h3>
+                <p>Apply for loans with competitive interest rates and flexible repayment options.</p>
+            </div>
+        </div>
+        <div class="service">
+            <div class="service-icon">
+                <i class="fas fa-history"></i>
+            </div>
+            <div class="service-content">
+                <h3>Transaction History</h3>
+                <p>View your complete transaction history with detailed information about each transaction.</p>
+            </div>
+        </div>
+        <div class="service">
+            <div class="service-icon">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="service-content">
+                <h3>Secure Profile Management</h3>
+                <p>Manage your profile information securely with robust protection features.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to start banking with us?</h2>
+        <p>Join thousands of satisfied customers and experience the difference today.</p>
+        {% if 'user_id' not in session %}
+            <div class="cta-buttons">
+                <a href="{{ url_for('login') }}" class="btn btn-primary">Log In</a>
+                <a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
